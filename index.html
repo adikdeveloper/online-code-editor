@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <!-- Meta teglar -->
+    <meta charset="UTF-8">
+    <!-- Responsive dizayn uchun viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO uchun meta teglar -->
+    <meta name="description"
+        content="Online kod muharriri - HTML, CSS va JavaScript kodlarini yozish va natijani ko'rish uchun">
+    <meta name="keywords" content="code editor, online editor, HTML, CSS, JavaScript">
+    <meta name="author" content="Your Name">
+    <title>Online Kod Muharriri</title>
+
+    <!-- Xavfsizlik sozlamalari -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com">
+
+    <!-- CSS ulanishi -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png">
+</head>
+
+<body>
+    <!-- Yuqori panel -->
+    <div class="navbar">
+        <h1>Online Kod Muharriri</h1>
+        <!-- Kod ishga tushirish tugmasi -->
+        <div class="navbar-buttons">
+            <button class="save-btn" id="saveCode" title="Kodni saqlash">
+                <span class="icon">💾</span> Saqlash
+            </button>
+            <button class="run-btn" id="runCode" title="Kodni ishga tushirish">
+                <span class="icon">▶️</span> Ishga tushirish
+            </button>
+        </div>
+    </div>
+
+    <!-- Asosiy konteyner -->
+    <div class="container">
+        <!-- Editor qismi -->
+        <div class="editor-container">
+            <!-- Tablar paneli -->
+            <div class="tab-container">
+                <button class="tab active" data-tab="html" title="HTML muharriri">
+                    HTML
+                </button>
+                <button class="tab" data-tab="css" title="CSS muharriri">
+                    CSS
+                </button>
+                <button class="tab" data-tab="js" title="JavaScript muharriri">
+                    JavaScript
+                </button>
+            </div>
+
+            <!-- Muharrirlar -->
+            <div class="editor-wrapper">
+                <textarea id="htmlEditor" class="editor" placeholder="HTML kodingizni bu yerga yozing..."
+                    aria-label="HTML muharriri" spellcheck="false"></textarea>
+            </div>
+
+            <div class="editor-wrapper" style="display: none;">
+                <textarea id="cssEditor" class="editor" placeholder="CSS kodingizni bu yerga yozing..."
+                    aria-label="CSS muharriri" spellcheck="false"></textarea>
+            </div>
+
+            <div class="editor-wrapper" style="display: none;">
+                <textarea id="jsEditor" class="editor" placeholder="JavaScript kodingizni bu yerga yozing..."
+                    aria-label="JavaScript muharriri" spellcheck="false"></textarea>
+            </div>
+        </div>
+
+        <!-- Natija ko'rsatiladigan qism -->
+        <iframe class="output" id="output" title="Kod natijasi" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+
+    <!-- Xatolik xabarlari uchun modal -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Xatolik</h2>
+            <p id="errorMessage"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript ulanishi -->
+    <script src="./script.js" defer></script>
+    <!-- Toast xabarnomalar -->
+    <div class="toast-container">
+        <div class="toast" id="toast">
+            <h4 class="toast-title"></h4>
+            <p class="toast-message"></p>
+            <button class="toast-close">&times;</button>
+        </div>
+    </div>
+</body>
+
+</html>
